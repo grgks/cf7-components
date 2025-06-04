@@ -14,13 +14,23 @@ import Layout from "./components/Layout.tsx";
 //import CounterAdvancedWithCustomHook from "./components/CounterAdvancedWithCustomHook";
 // import CounterWithReducer from "./components/CounterWithReducer.tsx";
 //import Todo from "./components/Todo/Todo.tsx";
-import OnlineStatus from "./components/OnlineStatus.tsx";
+//import OnlineStatus from "./components/OnlineStatus.tsx";
+import {BrowserRouter, Routes, Route} from "react-router";
+import HomePage from "./pages/HomePage.tsx";
+import NameChangerPage from "./pages/NameChangerPage.tsx";
+
+
 
 function App() {
 
+// useEffect(() => {
+    //   const id: number = setInterval(() => console.log("tick"), 1000);
+    //   return () => clearInterval(id);
+    // }, []);
+
     return (
         <>
-            <Layout>
+            {/*<Layout>*/}
                 {/*<ClassComponent/>*/}
                 {/*<FunctionalComponent/>*/}
                 {/*<ArrowFunctionalComponent/>*/}
@@ -43,9 +53,18 @@ function App() {
                 {/*<CounterWithReducer/>*/}
                 {/*<Todo/>*/}
 
-                <OnlineStatus/>
+                {/*<OnlineStatus/>*/}
 
-            </Layout>
+            {/*</Layout>*/}
+
+                <BrowserRouter>
+                    <Layout>
+                        <Routes>
+                            <Route path="/" element={<HomePage />}/>
+                            <Route path="name-changer" element={<NameChangerPage/>}/>
+                        </Routes>
+                    </Layout>
+                </BrowserRouter>
         </>
     )
 }
